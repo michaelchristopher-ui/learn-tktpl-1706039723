@@ -15,20 +15,4 @@ import static org.junit.Assert.assertEquals;
 
 public class MainActivityTest {
 
-    private MainActivity mTestActivity;
-    @Rule
-    public ActivityScenarioRule rule = new ActivityScenarioRule<>(MainActivity.class);
-
-
-    //https://stackoverflow.com/questions/61953249/how-to-access-activity-from-activityscenariorule
-    @Test
-    public void testHelloWorldTextView() {
-        ActivityScenario<MainActivity> scenario = rule.getScenario().onActivity(new ActivityScenario.ActivityAction() {
-            @Override
-            public void perform(Activity mainActivity) {
-                TextView helloWorld = mainActivity.findViewById(R.id.helloWorld);
-                assertEquals("Hello World!", helloWorld.getText());
-            }
-        });
-    }
 }
