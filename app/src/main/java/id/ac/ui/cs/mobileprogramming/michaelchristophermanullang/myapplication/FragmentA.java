@@ -30,7 +30,10 @@ public class FragmentA extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                viewModel.setText(editText.getText());
+
+                String text = editText.getText().toString() + " with length " + getTxtLen(editText.getText().toString());
+
+                viewModel.setText(text);
 
                 FragmentB secondFragment = new FragmentB();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -50,4 +53,6 @@ public class FragmentA extends Fragment {
         viewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
 
     }
+
+    public native int getTxtLen(String txt);
 }

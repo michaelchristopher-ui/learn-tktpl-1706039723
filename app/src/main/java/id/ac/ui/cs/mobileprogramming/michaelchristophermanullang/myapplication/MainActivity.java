@@ -4,10 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
     FragmentA fragmentA;
+
+    static {
+        System.loadLibrary("cpp_code");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.mainLayout, fragmentA)
                 .commit();
+
     }
 
     @Override
@@ -28,5 +34,7 @@ public class MainActivity extends AppCompatActivity {
             transaction.commit();
         }
     }
+
+
 
 }
